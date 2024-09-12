@@ -1,0 +1,199 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffecd2, #a1c4fd, #c2e9fb);
+    background-size: 500% 500%;
+    animation: gradientBG 20s ease infinite;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+}
+h1 {
+    font-size: 4em;
+    color: #333;
+    margin-bottom: 20px;
+    animation: pop 0.5s ease-out, float 3s ease-in-out infinite, rainbow 5s linear infinite;
+}
+p {
+    font-size: 1.8em;
+    color: #666;
+    max-width: 600px;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-out, float 3s ease-in-out infinite;
+}
+.star-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.star {
+    font-size: 4em;
+    color: #FFD700;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+    animation: twinkle 1.5s infinite alternate;
+}
+.star:hover {
+    transform: scale(1.2) rotate(72deg);
+}
+.message-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: none;
+    font-size: 1.5em;
+    color: #333;
+    animation: popIn 0.5s ease-out;
+}
+.candle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.candle {
+    width: 30px;
+    height: 100px;
+    background: linear-gradient(#ff9999, #ffcccc);
+    margin: 0 10px;
+    position: relative;
+    border-radius: 10px;
+    animation: candleFlicker 0.5s infinite alternate;
+}
+.flame {
+    width: 15px;
+    height: 30px;
+    background: #ff6600;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flameFlicker 0.3s infinite alternate;
+}
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    border-radius: 50%;
+    animation: float 5s ease-in-out infinite;
+}
+.animated-text {
+    display: inline-block;
+    animation: wavyText 2s infinite;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes pop {
+    0% { transform: scale(0); }
+    90% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes popIn {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    90% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+@keyframes candleFlicker {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(0.98); }
+}
+@keyframes flameFlicker {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(0.9) translateY(-2px); }
+}
+@keyframes rainbow {
+    0% { color: #ff0000; }
+    14% { color: #ff7f00; }
+    28% { color: #ffff00; }
+    42% { color: #00ff00; }
+    57% { color: #0000ff; }
+    71% { color: #8b00ff; }
+    85% { color: #ff00ff; }
+    100% { color: #ff0000; }
+}
+@keyframes twinkle {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+@keyframes wavyText {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    75% { transform: translateY(5px); }
+}
+@media (max-width: 600px) {
+    h1 { font-size: 3em; }
+    p { font-size: 1.5em; }
+    .star { font-size: 3em; }
+    .candle { width: 20px; height: 70px; }
+    .flame { width: 10px; height: 20px; top: -15px; }
+}
+
+
+
+
+
+.heart-container {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.heart {
+    font-size: 2em;
+    color: #ff4d4d;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: pulse 1.5s infinite;
+}
+
+.heart:hover {
+    transform: scale(1.2);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+    .heart-container {
+        bottom: 10px;
+        gap: 10px;
+    }
+
+    .heart {
+        font-size: 1.5em;
+    }
+}
